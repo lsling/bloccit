@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'random_data'
+
+# Create Posts
+50.times do
+# #1 Adding a ! instructs the method to raise an error if there's a problem with the data we're seeding. Using create without a bang could fail without warning, causing the error to surface later
+  Post.create!(
+# #2 we use methods from a class that does not exist yet, RandomData, that will create random strings for title and body
+    title:  RandomData.random_sentence,
+    body:   RandomData.random_paragraph
+  )
+end
+posts = Post.all
+
+# Create Comments
+# #3 we call times on an Integer (a number object). This will run a given block the specified number of times, which is 100 in this case
+100.times do
+  Comment.create!(
+# #4 we call sample on the array returned by Post.all, in order to pick a random post to associate each comment with
+    post: posts.sample,
+    body: RandomData.random_paragraph
+  )
+end
+
+puts "Seed finished"
+puts "#{Post.count} posts created"
+puts "#{Comment.count} comments created"
