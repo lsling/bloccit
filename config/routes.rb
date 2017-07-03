@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :advertisements
+
   ## we call the resources method and pass it a Symbol
   resources :posts
 
