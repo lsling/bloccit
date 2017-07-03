@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  ## we call the resources method and pass it a Symbol
+  resources :posts
 
-  get 'welcome/about'
+  ## we remove get "welcome/index" because we've declared the index view as the root view
+  get 'about' => 'welcome#about'
 
   root 'welcome#index'
 
