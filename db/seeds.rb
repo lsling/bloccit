@@ -1,5 +1,5 @@
 require 'random_data'
-
+include RandomData
 # Create Posts
 50.times do
 # #1 Adding a ! instructs the method to raise an error if there's a problem with the data we're seeding. Using create without a bang could fail without warning, causing the error to surface later
@@ -21,6 +21,15 @@ posts = Post.all
   )
 end
 
+100.times do
+  Question.create!(
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph,
+    resolved: false
+  )
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
