@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   ## we create routes for new and create actions
   resources :users, only: [:new, :create]
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   ## we remove get "welcome/index" because we've declared the index view as the root view
   get 'about' => 'welcome#about'
 
