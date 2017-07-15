@@ -9,6 +9,14 @@ require 'random_data'
   password: RandomData.random_sentence
   )
 end
+
+moderator = User.create!(
+    name:      'Moderator User',
+    email:     'moderator@example.com',
+    password:  'helloworld',
+    role:      'moderator'
+)
+
 users = User.all
 
 # Create Topics
