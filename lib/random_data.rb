@@ -1,5 +1,15 @@
 # #5 we define RandomData as a module because it is a standalone library with no dependencies or inheritance requirements
 module RandomData
+  def self.random_name
+    first_name = random_word.capitalize
+    last_name = random_word.capitalize
+    "#{first_name} #{last_name}"
+  end
+
+  def self.random_email
+    "#{random_word}@#{random_word}.#{random_word}"
+  end
+  
 # #6 we define random_paragraph. We set sentences to an array
   def self.random_paragraph
     sentences = []
