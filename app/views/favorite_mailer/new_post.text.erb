@@ -1,0 +1,8 @@
+You're following "<%= @post.title %>"
+<%= "=" * (@post.title.length + 12) %>
+
+By: <%= @comment.user.name %>
+
+<%= @comment.body %>
+
+Visit Post on site: <%= topic_post_url(@post.topic, @post) %>
