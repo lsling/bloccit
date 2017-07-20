@@ -20,7 +20,16 @@
 </div>
 
 <h2>Posts</h2>
-<%= render @user.posts %>
+<%= count_posts(@user) %>
 
 <h2>Comments</h2>
-<%= render @user.comments %>
+<%= count_comments(@user) %>
+
+ <div class="media">
+   <div class="media-body">
+     <h2 class="media-heading">Favorited Posts</h2>
+     <%= favorited_posts(@user) %>
+   </div>
+   <div class="media-right">
+   </div>
+ </div>
